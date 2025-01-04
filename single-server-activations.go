@@ -2,7 +2,6 @@ package onlinesim
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -167,7 +166,6 @@ func (c *Client) GetNum(service string, country int) (GetNumResp, error) {
 		URL + "?" + query.Encode(),
 		nil,
 	)
-	fmt.Println(URL + query.Encode())
 	req.Header.Set("Authorization", "Bearer " + c.ApiKey)
 
 	resp, err := c.httpClient.Do(req)
@@ -183,7 +181,6 @@ func (c *Client) GetNum(service string, country int) (GetNumResp, error) {
 	
 	getNumResp := GetNumResp{}
 	
-	fmt.Println(string(respBody))
 	err = json.Unmarshal(respBody, &getNumResp)
 	if err != nil {
 		return GetNumResp{}, err
