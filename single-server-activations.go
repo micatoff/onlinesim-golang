@@ -73,7 +73,7 @@ type SubscriptionTariff struct {
 }
 
 type GetNumResp struct {
-	Response     int    `json:"response"`
+	Response     interface{}    `json:"response"`
 	Tzid         int    `json:"tzid"`
 	Number       string `json:"number"`
 	Country      int    `json:"country"`
